@@ -21,7 +21,6 @@ body {
     align-items: center;
     justify-content: center;
     min-height: 100vh;
-    overflow: hidden;
 }
 
 .container {
@@ -105,4 +104,11 @@ body {
     .timer h1 { font-size: 1.2rem; }
     .title h1 { font-size: 0.9rem; }
     .image img { max-width: 250px; }
+}
+
+@media (min-width: 1100px) {
+    .all{
+        display: flex;
+        flex-direction: row;
+    }
 }

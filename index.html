@@ -1,47 +1,75 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vualas</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="logo.png" type="image/x-icon">
 </head>
 
 <body>
     <script>
         const fechaInicio = new Date(2025, 11, 16, 17, 38, 0).getTime();
+        const fechaInicioChocolate = new Date(2025, 11, 29, 21, 46, 0).getTime();
 
-        function actualizarContador() {
+        function actualizarContador(fecha,id) {
             const ahora = new Date().getTime();
-            const diferencia = ahora - fechaInicio;
+            const diferencia = ahora - fecha;
 
             const dias = Math.floor(diferencia / (1000 * 60 * 60 * 24));
             const horas = Math.floor((diferencia % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
             const minutos = Math.floor((diferencia % (1000 * 60 * 60)) / (1000 * 60));
             const segundos = Math.floor((diferencia % (1000 * 60)) / 1000);
 
-            document.getElementById("contador").innerHTML =
+            document.getElementById(id).innerHTML =
                 `${dias} días ${horas} horas ${minutos} minutos y ${segundos} segundos`;
         }
 
-        setInterval(actualizarContador, 1000);
+        setInterval(() => {
+            actualizarContador(fechaInicio,"contador-vualas");
+        }, 1000);
+        setInterval(() => {
+            actualizarContador(fechaInicioChocolate,"contador-chocolate");
+        }, 1000);
 
-        actualizarContador();
+        actualizarContador(fechaInicio,"contador-vualas");
+        actualizarContador(fechaInicioChocolate,"contador-chocolate");
     </script>
-    <div class="container">
-        <div class="counter">
-            <div class="title">
-                <h1>Ha pasado</h1>
+    <div class="all">
+
+        <div class="container" id="fell'vualas">
+            <div class="counter">
+                <div class="title">
+                    <h1>Ha pasado</h1>
+                </div>
+                <div class="timer">
+                    <h1 id="contador-vualas">000 dias 000 horas 000 minutos y 000 segundos</h1>
+                </div>
+                <div class="text">
+                    <h1>desde que a Gisselle se le cayeron unos vualas</h1>
+                </div>
             </div>
-            <div class="timer">
-                <h1 id="contador">000 dias 000 horas 000 minutos y 000 segundos</h1>
-            </div>
-            <div class="text">
-                <h1>desde que a Gisselle se le cayeron unos vualas</h1>
+            <div class="image">
+                <img src="giss_vualas_falling_wobg.png" alt="">
             </div>
         </div>
-        <div class="image">
-            <img src="giss_vualas_falling_wobg.png" alt="">
+        <div class="container" id="fell'chocolate">
+            <div class="counter">
+                <div class="title">
+                    <h1>Ha pasado</h1>
+                </div>
+                <div class="timer">
+                    <h1 id="contador-chocolate">000 dias 000 horas 000 minutos y 000 segundos</h1>
+                </div>
+                <div class="text">
+                    <h1>desde que a Gisselle se le tiro todo el chocolate</h1>
+                </div>
+            </div>
+            <div class="image">
+                <img src="giss_chocolate_falling_wobg.png" alt="">
+            </div>
         </div>
     </div>
 </body>
